@@ -9,29 +9,16 @@ Setting up Kubernetes locally with Docker on macOS
 4. Set kubectl context to your local cluster
    1. `$ kubectl config get-contexts` to see all available contexts
    2. `$ kubectl config use-context docker-for-desktop`
-5. Lets deploy the Dashboard UI
-
-   1. ```
-      $ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
-      ```
-   2. We can serve this locally with `$ kubectl proxy`
-   3. You might need a token to log-in, which you can fetch with
-      ```
-      $ kubectl -n kube-system describe secret default
-      ```
-
-6. Let's try connecting to the Dashboard
-
-7) Create a new namespace `kubectl create ns example`
+5) Create a new namespace `kubectl create ns example`
    Optionally set this namespace as default for the kubectl context `kubectl config set-context --current --namespace=example`. Verify with `kubectl config view | grep namespace`
-8) Deploy the node.js server `kubectl apply -f hapi-example-deployment.yaml -n example` // you can skip appending the namespace if you set it in the optional config set above.
-9) You should now be able to see the running pod with `kubectl get pods -n example`
-10) This service is now running internally inside the cluster, unexposed, which means we cannot access it.
+6) Deploy the node.js server `kubectl apply -f hapi-example-deployment.yaml -n example` // you can skip appending the namespace if you set it in the optional config set above.
+7) You should now be able to see the running pod with `kubectl get pods -n example`
+8) This service is now running internally inside the cluster, unexposed, which means we cannot access it.
     Optionally check this by `curl localhost:8080`
-11) Let's expose the deployment with a Load Balancer `kubectl expose deployment hello-world --type=LoadBalancer --name=my-service -n example`
-12) You can now get all services by running `kubectl get services -n example`
+9) Let's expose the deployment with a Load Balancer `kubectl expose deployment hello-world --type=LoadBalancer --name=my-service -n example`
+10) You can now get all services by running `kubectl get services -n example`
     Note the Type, External-IP and Port. We should have a Load Balancer service running on localhost with external port 8080.
-13) We should now be able to `curl localhost:8080` and get a reply.
+11) We should now be able to `curl localhost:8080` and get a reply.
 
 Exercise: Run a load test, `ab -n 25 -c 5 localhost:8080/` and write down the tests time to finish. Then reference the [kubectl cheat sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/) and scale up so we have 5 running pods. Run the load test again and check if there is a difference in the tests time to finish.
 
