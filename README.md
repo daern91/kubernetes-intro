@@ -20,6 +20,8 @@ Setting up Kubernetes locally with Docker on macOS
     Note the Type, External-IP and Port. We should have a Load Balancer service running on localhost with external port 8080.
 11) We should now be able to `curl localhost:8080` and get a reply.
 
+Probe exercise: Get all pods, verify that they are running and note the amount of restarts. Then curl the `/crash` endpoint. Get all pods again repeatedly and see how quickly the liveness probe realizes that we have a problem and restarts. 
+
 Exercise: Run a load test, `ab -n 25 -c 5 localhost:8080/` and write down the tests time to finish. Then reference the [kubectl cheat sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/) and scale up so we have 5 running pods. Run the load test again and check if there is a difference in the tests time to finish.
 
 Finish up by scaling down to 1 pod again.
