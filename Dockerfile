@@ -1,9 +1,6 @@
 FROM node:erbium-alpine AS dependencies
 
-ARG NODE_ENV=production
-ENV NODE_ENV=$NODE_ENV
-
-COPY package.json yarn.lock ./
+COPY package.json ./
 COPY src/ src/
 
 RUN yarn install 

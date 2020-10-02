@@ -12,8 +12,15 @@ const cpuIntensiveCalculation = baseNumber => {
 
 const handleRequest = function(request, response) {
   response.writeHead(200);
-  cpuIntensiveCalculation(10);
-  response.end("Hi there!");
+  const { url } = request;
+  if (url === "/crash") {
+    throw Error("Server crashed!");
+  } else if (url === "/health") {
+    response.end("Healthy");
+  } else {
+    cpuIntensiveCalculation(10);
+    response.end("Hi there!");
+  }
 };
 
 const server = http.createServer(handleRequest);
