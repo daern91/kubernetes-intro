@@ -5,7 +5,9 @@ These exercises are meant do be done together in the [Kubernetes-intro](https://
 [Setup steps for Kubernetes with Docker on macOS](./SETUP.md)
 
 [Exercise 1 - Your first deployment](./EXERCISE-1.md)
+
 [Exercise 2 - Are we alive?](./EXERCISE-2.md)
+
 [Exercise 3 - Time to scale it](./EXERCISE-3.md)
 
 [Tear down steps](./TEARDOWN.md)
