@@ -21,8 +21,8 @@ Ahhh, sweet efficient laziness.
 6. In a new terminal window, let's run the load test again to verify that autoscaling is working. `ab -n 25 -c 5 localhost:8080/`.
 7. In the first window, let's see the hpa in action with `kubectl get hpa -n example` or `kubectl get pods, hpa -n example`.
 
-[:house: Back to the README](./README.md)
+[:house: Back to the README.](./README.md)
 
-[:arrow_backward: Exercise 2](./EXERCISE-2.md)
+[:arrow_backward: Exercise 2.](./EXERCISE-2.md)
 
-[:arrow_forward: Tear down](./TEARDOWN.md)
+[:arrow_forward: Tear down.](./TEARDOWN.md)
