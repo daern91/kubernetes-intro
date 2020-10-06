@@ -1,4 +1,4 @@
-#### Setting up Kubernetes locally with Docker on macOS
+## Setting up Kubernetes locally with Docker on macOS
 
 1. [Install Docker](https://docs.docker.com/docker-for-mac/install/)
 2. [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-macos) (`$ brew install kubectl`)
@@ -11,6 +11,6 @@
 5) Create a new namespace `kubectl create ns example`
    Optionally set this namespace as default for the kubectl context `kubectl config set-context --current --namespace=example`. Verify with `kubectl config view | grep namespace`
 
-[Back to the README](./README.md)
+[:house: Back to the README](./README.md)
 
-[Exercise 1](./EXERCISE-1.md)
+[:arrow_forward: Exercise 1](./EXERCISE-1.md)
