@@ -10,6 +10,6 @@
     "type": "git",
     "url": "git+https://github.com/daern91/kubernetes-intro.git"
   },
-  "author": "Daniel Eriksson",
+  "contributors": ["Daniel Eriksson", "Matthias Köster"],
   "license": "MIT"
 }
