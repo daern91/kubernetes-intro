@@ -6,9 +6,9 @@ First of all, please clone this repo cd into it, then start with the setup step 
 
 [Setup steps for Kubernetes with Docker on macOS.](./SETUP.md)
 
-[Exercise 1 - Your first deployment](./EXERCISE-1.md)
+[Exercise 1 - Your first deployment.](./EXERCISE-1.md)
 
-[Exercise 2 - Are we alive?.](./EXERCISE-2.md)
+[Exercise 2 - Are we alive?](./EXERCISE-2.md)
 
 [Exercise 3 - Time to scale it.](./EXERCISE-3.md)
 
