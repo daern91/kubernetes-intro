@@ -1,8 +1,8 @@
 ## Setting up Kubernetes locally with Docker on macOS
 
-1. [Install Docker](https://docs.docker.com/docker-for-mac/install/)
+1. [Install Docker](https://docs.docker.com/docker-for-mac/install/) (we're using version 19.03.x)
 2. [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-on-macos) (`$ brew install kubectl`)
-3. Enable Kubernetes on Docker
+3. Enable Kubernetes on Docker (we're using version 1.18.x)
    ![Enable k8s on Docker](./enable_kubernetes_on_docker.png)
 4. Set kubectl context to your local cluster
    1. `$ kubectl config get-contexts` to see all available contexts
