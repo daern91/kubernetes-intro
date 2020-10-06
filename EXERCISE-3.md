@@ -17,7 +17,7 @@ Ahhh, sweet efficient laziness.
 2. With only one pod running, lets deploy an HPA, `kubectl autoscale deployment hello-world --cpu-percent=5 --min=1 --max=10 -n example`.
 3. Verify that the hpa is running with `kubectl get hpa -n example`.
 4. If you see **Targets** showing `unknown></5%>`, then please run `kubectl set resources deployment hello-world --limits=cpu=300m,memory=64Mi -n example`. It should now show a percentage and not `unknown`. If not, please scale up to 5 pods manually and then down again when you see the percentage.
-5. Run `kubectl get all -n example`, or `kubectl get pods, hpa -n example` to view the amount of running pods and hpa targets.
+5. Run `kubectl get all -n example`, or `kubectl get pods, hpa -n example` to view the amount of running pods and hpa targets. You can also see the exact CPU and memory usage of the pods with `kubectl top pod -n example`
 6. In a new terminal window, let's run the load test again to verify that autoscaling is working. `ab -n 25 -c 5 localhost:8080/`.
 7. In the first window, let's see the hpa in action with `kubectl get hpa -n example` or `kubectl get pods, hpa -n example`.
 
