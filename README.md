@@ -1,4 +1,11 @@
-Intro to kubernetes
+## Intro to kubernetes
+
+These exercises are meant do be done together in the [Kubernetes-intro](https://docs.google.com/presentation/d/1CdOHlNCrf3q8y5Sxl8WBrRLKWQusdzt4LnKrH1h2-eE) workshop taught within commercetools.
+
+0. [Setup steps for Kubernetes with Docker on macOS](./SETUP.md)
+
+[Ex 1. Your first deployment](./E)
+Ex 2. Your first deployment
 
 Setting up Kubernetes locally with Docker on macOS
 
@@ -9,18 +16,19 @@ Setting up Kubernetes locally with Docker on macOS
 4. Set kubectl context to your local cluster
    1. `$ kubectl config get-contexts` to see all available contexts
    2. `$ kubectl config use-context docker-for-desktop`
+
 5) Create a new namespace `kubectl create ns example`
    Optionally set this namespace as default for the kubectl context `kubectl config set-context --current --namespace=example`. Verify with `kubectl config view | grep namespace`
 6) Deploy the node.js server `kubectl apply -f hapi-example-deployment.yaml -n example` // you can skip appending the namespace if you set it in the optional config set above.
 7) You should now be able to see the running pod with `kubectl get pods -n example`
 8) This service is now running internally inside the cluster, unexposed, which means we cannot access it.
-    Optionally check this by `curl localhost:8080`
+   Optionally check this by `curl localhost:8080`
 9) Let's expose the deployment with a Load Balancer `kubectl expose deployment hello-world --type=LoadBalancer --name=my-service -n example`
 10) You can now get all services by running `kubectl get services -n example`
     Note the Type, External-IP and Port. We should have a Load Balancer service running on localhost with external port 8080.
 11) We should now be able to `curl localhost:8080` and get a reply.
 
-Probe exercise: Get all pods, verify that they are running and note the amount of restarts. Then curl the `/crash` endpoint. Get all pods again repeatedly and see how quickly the liveness probe realizes that we have a problem and restarts. 
+Probe exercise: Get all pods, verify that they are running and note the amount of restarts. Then curl the `/crash` endpoint. Get all pods again repeatedly and see how quickly the liveness probe realizes that we have a problem and restarts.
 
 Exercise: Run a load test, `ab -n 25 -c 5 localhost:8080/` and write down the tests time to finish. Then reference the [kubectl cheat sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/) and scale up so we have 5 running pods. Run the load test again and check if there is a difference in the tests time to finish.
 
